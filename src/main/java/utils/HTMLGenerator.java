@@ -6,7 +6,7 @@ import static j2html.TagCreator.*;
 
 public class HTMLGenerator {
 
-    public static String generateHTML(){
+    public static String getForm(){
 
         return html(
                 head(
@@ -30,6 +30,33 @@ public class HTMLGenerator {
         ).render();
 
     }
+
+    public static String postForm(String toShow){
+
+        return html(
+                head(
+                        title("To upper case"),
+                        meta().withCharset("UTF-8")
+                ),
+                body(
+                        h1("Result"),
+                        div(
+
+                        ),
+                        div(
+                                fieldset(
+                                        form().withStyle("display:block").withMethod("get").with(
+                                                text(toShow),
+                                                getButton()
+                                        )
+                                )
+                        )
+                ).withStyle("background-color: AliceBlue")
+        ).render();
+
+    }
+
+
 
     public static Tag getTextarea(){
 

@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.Writer;
 
 public class SimpleHttpServlet extends HttpServlet {
 
@@ -13,7 +12,7 @@ public class SimpleHttpServlet extends HttpServlet {
 
         try {
 
-            response.getWriter().write(HTMLGenerator.generateHTML());
+            response.getWriter().write(HTMLGenerator.getForm());
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -25,7 +24,7 @@ public class SimpleHttpServlet extends HttpServlet {
         try {
             String text = request.getParameter("text");
             String upperText = text.toUpperCase();
-            response.getWriter().write(upperText);
+            response.getWriter().write(HTMLGenerator.postForm(upperText));
         }catch (IOException e){
             e.printStackTrace();
         }
